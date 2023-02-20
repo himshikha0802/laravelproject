@@ -26,6 +26,7 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Name</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Name here...">
+                <span class="text-danger">{{$errors->first('name')}}</span>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Description</label>

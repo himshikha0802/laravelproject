@@ -32,7 +32,7 @@
                     <td>{{$doctor['description']}}</td>
                     <td>{{$doctor['PhoneNumber']}}</td>
                     <td> <img src="{{$doctor->image_path}}" style="width: 70px; height: 70px;" class="img-circle" alt=""></td>
-                    <td>{{$doctor->specialist->SpecialistType}}</td>
+                    <td>{{$doctor->specialist->SpecialistType ?? ""}}</td>
 
                     <td><a class="btn btn-primary" href="{{route('doctor.edit',$doctor['id'])}}">Edit</a></td>
                     <td><a class="btn btn-danger" href="{{route('doctor.delete',$doctor['id'])}}">Delete</a></td>

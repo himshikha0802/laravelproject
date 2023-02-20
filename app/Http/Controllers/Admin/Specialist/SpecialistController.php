@@ -23,18 +23,24 @@ class SpecialistController extends Controller
     public function store(Request $request){//submit grdako request catch grxa
         // dd($request->all());
         // return view('admin.category.store');
+        $request->validate([
+            "SpecialistType"=>'required',
+        ]);
         $specialist=new Specialist();
         $specialist->SpecialistType=$request->get('SpecialistType');
-        $specialist->description=$request->get('description');
+        $specialist->description=$request->get('description') ?? "";
         $specialist->is_active=$request->get('is_active')==true?1:0;
         $specialist->save();
         return redirect()->route('specialist.index');
 
     }
     public function update($id,Request $request){
+        $request->validate([
+            "SpecialistType"=>'required',
+        ]);
         $specialist=Specialist::find($id);
         $specialist->SpecialistType=$request->get('SpecialistType');
-        $specialist->description=$request->get('description');
+        $specialist->description=$request->get('description') ?? "";
         $specialist->is_active=$request->get('is_active')==true?1:0;
         $specialist->save();
         return redirect()->route('specialist.index');

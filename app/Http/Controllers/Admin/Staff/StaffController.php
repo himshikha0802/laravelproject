@@ -23,13 +23,17 @@ class StaffController extends Controller
     public function store(Request $request){//submit grdako request catch grxa
         // dd($request->all());
         // return view('admin.category.store');
+        $request->validate([
+            "name"=>'required',
+            "post"=>'required',
+        ]);
         $staff=new staff();
-        $staff->name=$request->get('name');
-        $staff->age=$request->get('age');
-        $staff->qualification=$request->get('qualification');
-        $staff->salary=$request->get('salary');
-        $staff->address=$request->get('address');
-        $staff->post=$request->get('post');
+        $staff->name=$request->get('name') ;
+        $staff->age=$request->get('age') ?? "";
+        $staff->qualification=$request->get('qualification') ?? "";
+        $staff->salary=$request->get('salary') ?? "";
+        $staff->address=$request->get('address') ?? "";
+        $staff->post=$request->get('post')?? "";
 
         $staff->save();
         return redirect()->route('staff.index');
@@ -37,13 +41,16 @@ class StaffController extends Controller
     }
     public function update($id,Request $request){
         $staff=staff::find($id);
-
+        $request->validate([
+            "name"=>'required',
+            "post"=>'required',
+        ]);
         //dd($request->all());
         $staff->name=$request->get('name');
-        $staff->age=$request->get('age');
-        $staff->qualification=$request->get('qualification');
-        $staff->salary=$request->get('salary');
-        $staff->address=$request->get('address');
+        $staff->age=$request->get('age') ?? "";
+        $staff->qualification=$request->get('qualification') ?? "";
+        $staff->salary=$request->get('salary') ?? "";
+        $staff->address=$request->get('address') ?? "";
         $staff->post=$request->get('post');
         $staff->save();
         return redirect()->route('staff.index');

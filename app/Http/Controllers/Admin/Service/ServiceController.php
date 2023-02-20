@@ -24,6 +24,9 @@ class ServiceController extends Controller
         //     'SpecialistType' => 'required',
         // };
         // $request->validate($rules);
+        $request->validate([
+            "title"=>'required',
+        ]);
         $fileName=null;
         if($request->file('image')){
         $fileName=strtotime(Carbon::now());
@@ -34,7 +37,7 @@ class ServiceController extends Controller
         }
         $service=new Service();
         $service->title=$request->get('title');
-        $service->description=$request->get('description');
+        $service->description=$request->get('description') ?? "";
         $service->image=$fileName;
         $service->save();
         return redirect()->route('service.index');
@@ -52,9 +55,12 @@ class ServiceController extends Controller
         $uploadPath=(public_path($this->uploadPath."/".$fileName));
          move_uploaded_file($request->file('image'), $uploadPath);
         }
+        $request->validate([
+            "title"=>'required',
+        ]);
         $service=Service::find($id);
         $service->title=$request->get('title');
-        $service->description=$request->get('description');
+        $service->description=$request->get('description') ?? "";
         $service->image=$fileName;
         $service->save();
         return redirect()->route('service.index');

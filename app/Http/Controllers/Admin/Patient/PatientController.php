@@ -31,12 +31,15 @@ class PatientController extends Controller
          move_uploaded_file($request->file('image'), $uploadPath);
 
         }
+        $request->validate([
+            "name"=>'required',
+        ]);
         $patient=new Patient();
         $patient->Name=$request->get('name');
-        $patient->description=$request->get('description');
-        $patient->contact=$request->get('contact');
-        $patient->address=$request->get('address');
-        $patient->age=$request->get('age');
+        $patient->description=$request->get('description') ?? "" ;
+        $patient->contact=$request->get('contact') ?? "";
+        $patient->address=$request->get('address') ?? "";
+        $patient->age=$request->get('age') ?? "";
         $patient->image=$fileName;
         $patient->save();
         return redirect()->route('patient.index');
@@ -55,12 +58,15 @@ class PatientController extends Controller
          move_uploaded_file($request->file('image'), $uploadPath);
 
         }
+        $request->validate([
+            "name"=>'required',
+        ]);
         $patient= Patient::find($id);
         $patient->Name=$request->get('name');
-        $patient->description=$request->get('description');
-        $patient->contact=$request->get('contact');
-        $patient->address=$request->get('address');
-        $patient->age=$request->get('age');
+        $patient->description=$request->get('description') ?? "";
+        $patient->contact=$request->get('contact') ?? "";
+        $patient->address=$request->get('address') ?? "";
+        $patient->age=$request->get('age') ?? "";
         $patient->image=$fileName;
         $patient->save();
         return redirect()->route('patient.index');

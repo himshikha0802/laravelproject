@@ -33,11 +33,14 @@ class DoctorController extends Controller
          move_uploaded_file($request->file('image'), $uploadPath);
 
         }
+        $request->validate([
+            "name"=>'required',
+        ]);
         $doctor=new Doctor();
         $doctor->Name=$request->get('name');
         $doctor->specialist_id=$request->get('specialist_id');
-        $doctor->description=$request->get('description');
-        $doctor->PhoneNumber=$request->get('phonenumber');
+        $doctor->description=$request->get('description') ?? "";
+        $doctor->PhoneNumber=$request->get('phonenumber') ?? "";
         $doctor->image=$fileName;
         $doctor->save();
         return redirect()->route('doctor.index');
@@ -57,11 +60,14 @@ class DoctorController extends Controller
          move_uploaded_file($request->file('image'), $uploadPath);
 
         }
+        $request->validate([
+            "name"=>'required',
+        ]);
         $doctor=Doctor::find($id);
         $doctor->Name=$request->get('name');
         $doctor->specialist_id=$request->get('specialist_id');
-        $doctor->description=$request->get('description');
-        $doctor->PhoneNumber=$request->get('phonenumber');
+        $doctor->description=$request->get('description') ?? "";
+        $doctor->PhoneNumber=$request->get('phonenumber') ?? "";
         $doctor->image=$fileName;
         $doctor->save();
         return redirect()->route('doctor.index');
