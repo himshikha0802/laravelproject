@@ -18,7 +18,7 @@
                 <th style="width: 10px"></th>
                 <th>SpecialistType</th>
                 <th>description</th>
-                <th>Status</th>
+                {{-- <th>Status</th> --}}
 
                 <th style="width: 40px">Action</th>
               </tr>
@@ -27,7 +27,7 @@
                     <td>{{$i+1}}</td>
                     <td>{{$specialist['SpecialistType']}}</td>
                     <td>{{$specialist['description']}}</td>
-                    <td>{{$specialist['is_active']}}</td>
+                    {{-- <td>{{$specialist['is_active']}}</td> --}}
                     <td>{{$specialist->doctors->count()}}</td>
 
                     <td><a class="btn btn-primary"  href="{{route('specialist.edit',$specialist['id'])}}">Edit</a></td>

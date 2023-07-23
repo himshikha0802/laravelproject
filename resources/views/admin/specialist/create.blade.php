@@ -29,11 +29,11 @@
                 <label for="exampleInputPassword1">Description</label>
                 <textarea class="form-control" name="description" placeholder="descripiton here..."></textarea>
               </div>
-              <div class="checkbox">
+              {{-- <div class="checkbox">
                 <label>
                   <input type="checkbox" name="is_active"> Status
                 </label>
-              </div>
+              </div> --}}
             </div>
             <!-- /.box-body -->
 

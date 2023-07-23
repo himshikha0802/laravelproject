@@ -29,11 +29,11 @@
                 <label for="exampleInputPassword1">Description</label>
                 <textarea class="form-control" name="description">{{$specialist['description']}}</textarea>
               </div>
-              <div class="checkbox">
+              {{-- <div class="checkbox">
                 <label>
                   <input type="checkbox" name="is_active" {{$specialist['is_active']?'checked':null}}> Status
                 </label>
-              </div>
+              </div> --}}
             </div>
             <!-- /.box-body -->
 

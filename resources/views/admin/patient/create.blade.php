@@ -34,11 +34,11 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Address</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="address" placeholder="PhoneNumber" style="border-color:rgb(6, 51, 94)">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="address" placeholder="Address" style="border-color:rgb(6, 51, 94)">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Age</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="age" placeholder="PhoneNumber" style="border-color:rgb(6, 51, 94)">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="age" placeholder="Age" style="border-color:rgb(6, 51, 94)">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Image</label>

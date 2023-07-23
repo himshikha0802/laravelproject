@@ -35,7 +35,7 @@ class AppointmentController extends Controller
 
     //    $data->status='approved';
     //    $data->save();
-       return redirect()->back;
+       return redirect()->back();
     }
     public function appointment(Request $request)
 

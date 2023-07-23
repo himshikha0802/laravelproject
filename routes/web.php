@@ -42,8 +42,8 @@ Route::get('/home', function () {
     return view('admin.auth.home');
 });
 
-//Auth::routes();
-/*Route::group(['middleware'=>['auth']],function(){
+Auth::routes();
+Route::group(['middleware'=>['auth']],function(){
     Route::get('/dashboard',function(){
         if(auth()->check()){
             if(auth()->user()->usertype == "admin"){
@@ -57,7 +57,7 @@ Route::get('/home', function () {
             return view('admin.dashboard.index1');
         }
     })->name('dashboard');
-});*/
+});
 Route::get('/layouts1',function(){
     $totalDoctor =  Doctor::count();
                 $totalPatient = Patient::count();
